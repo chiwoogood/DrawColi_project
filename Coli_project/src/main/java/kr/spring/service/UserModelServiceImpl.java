@@ -1,5 +1,5 @@
 package kr.spring.service;
 
-public class UserModelServiceImpl {
+public class UserModelServiceImpl implements UserModelService{
 
 }

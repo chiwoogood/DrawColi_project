@@ -1,5 +1,5 @@
 package kr.spring.service;
 
-public class PoseServiceImpl {
+public class PoseServiceImpl implements PoseService{
 
 }

@@ -1,5 +1,5 @@
 package kr.spring.service;
 
-public class FileServiceImpl {
+public class FileServiceImpl implements FileService{
 
 }

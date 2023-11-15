@@ -1,5 +1,5 @@
 package kr.spring.service;
 
-public class CommentServiceImpl {
+public class CommentServiceImpl implements CommentService{
 
 }

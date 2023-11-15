@@ -1,5 +1,5 @@
 package kr.spring.service;
 
-public class ContentServiceImpl {
+public class ContentServiceImpl implements ContentService{
 
 }
