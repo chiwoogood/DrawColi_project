@@ -62,6 +62,7 @@
 		  <!-- Form -->
 		  <form action="${cpath}/member/join" method="post" class="login-form">
 		    <!-- id input -->
+		    <!-- @@@@@@@@@@@@@@@@@@@@@@@@로그인@@@@@@@@@@@@@@@@@@@@@@@ -->
 		    <div class="input__block signin-input__block">
 		       <input type="text" name="username" placeholder="id" class="input" id="id"   />
 		    </div>
@@ -69,6 +70,7 @@
 		    <div class="input__block signin-input__block">
 		       <input type="password" name="password" placeholder="Password" class="input" id="password"    />
 		    </div>
+		    <!-- @@@@@@@@@@@@@@@@@@@@@@@@로그인@@@@@@@@@@@@@@@@@@@@@@@ -->
 		    <!-- repeat password input -->
 		    <div class="input__block signup-input__block">
 		       <input type="password" name="passwordConfirmation" placeholder="Repeat password" class="input" id="password"    />
@@ -152,6 +154,7 @@
 			    });
 			    $(".login-form").find(".signup-input__block").css("display", "block");
 			    signin_btn.text("Sign up");
+			    $(".login-form").attr("action","${cpath}/member/join");
 			  });
 
 			  //----------- sign in ---------------------
@@ -163,6 +166,7 @@
 			    first_input.css("display", "block");
 			    hidden_input.css("display", "none");
 			    signin_btn.text("Sign in");
+			    $(".login-form").attr("action", "${cpath}/member/login");
 			  });
 
 			  //----------- reset ---------------------
