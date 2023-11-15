@@ -17,16 +17,14 @@ class ColiProjectApplicationTests {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-//	@Test
-//	void contextLoads() {
-//		// 회원가입테스트
-//		Member m = new Member();
-//		m.setUsername("dal");
-//		m.setPassword(passwordEncoder.encode("123"));
-//		m.setName("달천이");
-//		m.setRole(Role.MEMBER);
-//		m.setEbled(true);
-//		memberRepository.save(m);
-//	}
+	@Test
+	void contextLoads() {
+		// 회원가입테스트
+		Member m = new Member();
+		m.setUsername("dal");
+		m.setPassword(passwordEncoder.encode("123"));
+		m.setName("달천이");
+		memberRepository.save(m);
+	}
 
 }

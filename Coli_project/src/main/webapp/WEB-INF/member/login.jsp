@@ -60,10 +60,10 @@
 		  </ul>
 		  
 		  <!-- Form -->
-		  <form action="" method="post" class="login-form">
+		  <form action="${cpath}/member/join" method="post" class="login-form">
 		    <!-- id input -->
 		    <div class="input__block signin-input__block">
-		       <input type="text" name="usernmae" placeholder="id" class="input" id="id"   />
+		       <input type="text" name="username" placeholder="id" class="input" id="id"   />
 		    </div>
 		    <!-- password input -->
 		    <div class="input__block signin-input__block">
@@ -71,7 +71,7 @@
 		    </div>
 		    <!-- repeat password input -->
 		    <div class="input__block signup-input__block">
-		       <input type="password" placeholder="Repeat password" class="input" id="password"    />
+		       <input type="password" name="passwordConfirmation" placeholder="Repeat password" class="input" id="password"    />
 		    </div>
 		    <!-- name input -->
 		    <div class="input__block signup-input__block">
@@ -92,10 +92,6 @@
 		    <!-- phone input -->
 		    <div class="input__block signup-input__block">
 		       <input type="tel" name="phone" placeholder="phone" class="input" id="phone"   />
-		    </div>
-		    <!-- role input -->
-		    <div class="input__block signup-input__block">
-		       <input type="hidden" name="role" value="free"   />
 		    </div>
 		    <!-- sign in button -->
 		    <button class="signin__btn">
