@@ -8,7 +8,9 @@ public interface MemberService {
     
     boolean login(Member vo);
     
-    void update(Member vo);
+    boolean modify(Member vo) throws PasswordNotMatchException;
     
     boolean isPasswordMatch(String password, String passwordConfirmation);
+    
+    
 }

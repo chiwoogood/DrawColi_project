@@ -38,25 +38,31 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void update(Member vo) {
+    public boolean modify(Member vo) throws PasswordNotMatchException {
+        if (!isPasswordMatch(vo.getPassword(), vo.getPasswordConfirmation())) {
+            throw new PasswordNotMatchException("비밀번호가 일치하지 않습니다.");
+        }
         Member existingMember = memberRepository.findById(vo.getUsername()).orElse(null);
 
-        if (existingMember != null) {
-            existingMember.setPassword(passwordEncoder.encode(vo.getPassword()));
-            existingMember.setPhone(vo.getPhone());
-            existingMember.setEmail(vo.getEmail());
-            existingMember.setNickname(vo.getNickname());
-
-            // 기타 필요한 업데이트 로직 추가
-
-            // 저장
-            memberRepository.save(existingMember);
+        if (existingMember == null) {
+            return false; // 회원 정보가 존재하지 않는 경우
         }
+
+        // 기존 회원 정보 업데이트
+        existingMember.setPassword(passwordEncoder.encode(vo.getPassword()));
+        existingMember.setPhone(vo.getPhone());
+        existingMember.setEmail(vo.getEmail());
+        existingMember.setNickname(vo.getNickname());
+
+        memberRepository.save(existingMember);
+        return true;
     }
+
 
     @Override
     public boolean isPasswordMatch(String password, String passwordConfirmation) {
         return password.equals(passwordConfirmation);
     }
+    
 
 }

@@ -128,7 +128,7 @@
 		<script src="${cpath}/js/plugins.js"></script>
 		<script src="${cpath}/js/script.js"></script>
 		
-<script type="text/javascript">
+		<script type="text/javascript">
 			$(document).ready(function(){
 			    let signup = $("#signup");
 			    let signin = $("#signin");
