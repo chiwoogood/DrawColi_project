@@ -1,13 +1,14 @@
 package kr.spring.entity;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -28,19 +29,19 @@ public class Member {
 	private Role role; // 권한정보
 	
 	private String nickname; // 이름
-	private LocalDate birth;
+	
 	private String email;
 	private String phone;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
+	
+	private LocalDateTime created_at;
 	
 	private String passwordConfirmation; // 비밀번호 확인용 필드
 	
-    public void setBirth(String birth) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        this.birth = LocalDate.parse(birth, formatter);
-    }
+	@PrePersist
+	protected void onCreate() {
+	    created_at = LocalDateTime.now();
+	}
     
     public Member() {
     	this.role = Role.FREE;

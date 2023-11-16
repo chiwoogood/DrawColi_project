@@ -3,7 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
+<sec:authentication property="principal" var="userDetails" />
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -50,10 +52,10 @@
 						</ul>
 					</div>
 					<div class="col-md-3 text-white">
-						<h3 class="text-white fw-bold nav__block-item">MyPage</h3>
+						<h3 class="text-white fw-bold nav__block-item" onclick="location.href='${cpath}/member/mypage';" style="cursor:pointer; user-select: none;">MyPage</h3>
 						<ul class="list-unstyled nav__block-item">
-							<li><a href="onepage.html" class="text-white">My Work</a></li>
-							<li><a href="styles.html" class="text-white">My Account</a></li>
+							<li><a href="${cpath}/member" class="text-white">My Work</a></li>
+							<li><a href=${cpath}/member/modify class="text-white">My Account</a></li>
 							<li><a href="blog.html" class="text-white">LogOut</a></li>
 						</ul>
 					</div>
@@ -77,7 +79,8 @@
 	    <input type="checkbox" id="options-view-button">
 	    <div id="select-button" class="brd">
 	      <div id="selected-value">
-	        <span>이름 님 환영합니다</span>
+	      
+	        <span>aewfeawfew1111</span>
 	      </div>
 	      <div id="chevrons">
 	        <i class="fas fa-chevron-up"></i>

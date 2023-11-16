@@ -51,7 +51,7 @@ public class MemberController {
         if (memberService.login(vo)) {
             // 로그인 성공
             // 로그인 성공 후 수행할 작업 추가
-            return "redirect:index"; // 예시로 home 페이지로 리다이렉트
+            return "index"; // 예시로 home 페이지로 리다이렉트
         } else {
             // 로그인 실패
             // 로그인 실패 후 수행할 작업 추가
@@ -59,4 +59,5 @@ public class MemberController {
             return "member/login";
         }
     }
+    
 }

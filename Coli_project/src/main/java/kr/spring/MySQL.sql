@@ -1,2 +1,2 @@
-SELECT * FROM Member;
+SELECT * FROM member;
 

@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 
@@ -30,6 +32,7 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 		rel="stylesheet">
+	
 </head>
 <body>
 		<%@ include file="/WEB-INF/header.jsp"%>
@@ -41,6 +44,8 @@
 					<h2 class="login-title">Member</h2>
 				</div><!--banner-content-->
 			</div><!--slider-item-->
+		</div>
+		</section>
 		
 		<div class="login-container">
 		  <!-- Heading -->
@@ -60,7 +65,7 @@
 		  </ul>
 		  
 		  <!-- Form -->
-		  <form action="${cpath}/member/join" method="post" class="login-form">
+		  <form action="#" method="post" class="login-form">
 		    <!-- id input -->
 		    <!-- @@@@@@@@@@@@@@@@@@@@@@@@로그인@@@@@@@@@@@@@@@@@@@@@@@ -->
 		    <div class="input__block signin-input__block">
@@ -73,7 +78,7 @@
 		    <!-- @@@@@@@@@@@@@@@@@@@@@@@@로그인@@@@@@@@@@@@@@@@@@@@@@@ -->
 		    <!-- repeat password input -->
 		    <div class="input__block signup-input__block">
-		       <input type="password" name="passwordConfirmation" placeholder="Repeat password" class="input" id="password"    />
+		       <input type="password" name="passwordConfirmation" placeholder="Repeat password" class="input" id="passwordConfirmation" />
 		    </div>
 		    <!-- name input -->
 		    <div class="input__block signup-input__block">
@@ -83,10 +88,6 @@
 		    <div class="input__block signup-input__block">
 		       <input type="text" name="nickname" placeholder="nickname" class="input" id="nickname"   />
 		    </div>
-		    <!-- birth input -->
-		    <div class="input__block signup-input__block">
-		       <input type="date" name="birth" placeholder="birth" class="input" id="birth"   />
-		    </div>
 		    <!-- email input -->
 		    <div class="input__block signup-input__block">
 		       <input type="email" name="email" placeholder="Email" class="input" id="email"   />
@@ -95,6 +96,7 @@
 		    <div class="input__block signup-input__block">
 		       <input type="tel" name="phone" placeholder="phone" class="input" id="phone"   />
 		    </div>
+
 		    <!-- sign in button -->
 		    <button class="signin__btn">
 		      Sign in
@@ -106,10 +108,10 @@
 		    <p>OR</p>
 		  </div>
 		  
-		  <!-- google button -->
-		  <button class="google__btn">
+		  <!-- kakao button -->
+		  <button class="google__btn" onclick="">
 		    <i class="fa fa-google"></i>
-		    Sign in with Kakao
+		    Sign in with Kakao  <!-- 3cb823a0fd6225928e59284def536177 -->
 		  </button>
 		  
 		  <!-- google button -->
@@ -128,30 +130,53 @@
 		<script src="${cpath}/js/plugins.js"></script>
 		<script src="${cpath}/js/script.js"></script>
 		
-		<script type="text/javascript">
-		$(document).ready(function(){
-			  let signup = $(".login-links").find("li").find("#signup");
-			  let signin = $(".login-links").find("li").find("#signin");
-			  let reset  = $(".login-links").find("li").find("#reset");
-			  let first_input = $(".login-form").find(".signin-input__block");
-			  let hidden_input = $(".login-form").find(".signup-input__block");
-			  let signin_btn  = $(".login-form").find(".signin__btn");
-
-			  // 초기 화면 설정: id와 password만 보이게
-			  first_input.css("display", "block");
-			  hidden_input.css("display", "none");
-
-			  //----------- sign up ---------------------
-			  signup.on("click",function(e){
-			    e.preventDefault();
-			    $(this).parent().parent().siblings(".login-h1").text("SIGN UP");
-			    $(this).parent().css("opacity","1");
-			    $(this).parent().siblings().css("opacity",".6");
-			    first_input.removeClass("signin-input__block").addClass("signup-input__block");
-			    hidden_input.css({
-			      "opacity" : "1",
-			      "display" : "block"
+			<script type="text/javascript">
+			$(document).ready(function(){
+			    let signup = $("#signup");
+			    let signin = $("#signin");
+			    let reset  = $("#reset");
+			    let firstInput = $(".signin-input__block");
+			    let hiddenInput = $(".signup-input__block");
+			    let signinBtn  = $(".signin__btn");
+			    let form = $(".login-form");
+			
+			    // 초기 화면 설정: id와 password만 보이게
+			    firstInput.css("display", "block");
+			    hiddenInput.css("display", "none");
+			
+			    //----------- sign up ---------------------
+			    signup.on("click", function(e){
+			        e.preventDefault();
+			        $(".login-h1").text("SIGN UP");
+			        $(this).css("opacity", "1");
+			        $(this).siblings().css("opacity", "0.6");
+			        form.attr("action", "join"); // 폼 액션을 회원가입으로 설정
+			        firstInput.removeClass("signin-input__block").addClass("signup-input__block");
+			        hiddenInput.css({
+			            "opacity" : "1",
+			            "display" : "block"
+			        });
+			        signinBtn.text("Sign up");
 			    });
+			
+			    //----------- sign in ---------------------
+			    signin.on("click", function(e){
+			        e.preventDefault();
+			        $(".login-h1").text("SIGN IN");
+			        $(this).css("opacity", "1");
+			        $(this).siblings().css("opacity", "0.6");
+			        form.attr("action", "member/login"); // 폼 액션을 로그인으로 설정
+			        firstInput.css("display", "block");
+			        hiddenInput.css("display", "none");
+			        signinBtn.text("Sign in");
+			    });
+			
+			    //----------- reset ---------------------
+			    reset.on("click", function(e){
+			        e.preventDefault();
+			        $(".input").val("");
+			    });
+<<<<<<< HEAD
 			    $(".login-form").find(".signup-input__block").css("display", "block");
 			    signin_btn.text("Sign up");
 			    $(".login-form").attr("action","${cpath}/member/join");
@@ -175,8 +200,14 @@
 			    $(this).parent().parent().siblings(".login-form")
 			    .find(".input__block").find(".input").val("");
 			  });
+=======
+>>>>>>> chiwoo
 			});
-		</script>
+			</script>
+
+		
+		<!-- kakao -->
+		
 </body>
 
 </html>

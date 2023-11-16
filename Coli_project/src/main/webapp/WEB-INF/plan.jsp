@@ -42,6 +42,8 @@
 					<h2 class="login-title">Plan</h2>
 				</div><!--banner-content-->
 			</div><!--slider-item-->
+		</div>
+		</section>
 			
 			<div class="container">
 		      <h5 class="text-center pricing-table-subtitle">DrawColi</h5>
@@ -75,7 +77,7 @@
 		                <li>AI 드로잉 (무제한)</li>
 		                <li>모델 및 캐릭터 다운로드 (무제한)</li>
 		              </ul>
-		              <a href="#!" class="btn pricing-plan-purchase-btn">Purchase</a>
+		              <a href="${cpath}/price" class="btn pricing-plan-purchase-btn">Purchase</a>
 		            </div>
 		          </div>
 		        </div>
@@ -91,7 +93,7 @@
 		                <li>AI 드로잉 (무제한)</li>
 		                <li>모델 및 캐릭터 다운로드 (무제한)</li>
 		              </ul>
-		              <a href="#!" class="btn pricing-plan-purchase-btn">Purchase</a>
+		              <a href="${cpath}/price" class="btn pricing-plan-purchase-btn">Purchase</a>
 		            </div>
 		          </div>
 		        </div>

@@ -1,8 +1,5 @@
 package kr.spring.service;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,7 +23,6 @@ public class MemberServiceImpl implements MemberService {
         if (isPasswordMatch(vo.getPassword(), vo.getPasswordConfirmation())) {
             String encPw = vo.getPassword();
             vo.setPassword(passwordEncoder.encode(encPw));
-            vo.setCreated_at(convertToDate(vo.getBirth()));
             memberRepository.save(vo);
             return true;  // 가입 성공
         } else {
@@ -63,8 +59,4 @@ public class MemberServiceImpl implements MemberService {
         return password.equals(passwordConfirmation);
     }
 
-    // LocalDate를 Date로 변환하는 메서드
-    private Date convertToDate(LocalDate localDate) {
-        return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-    }
 }
