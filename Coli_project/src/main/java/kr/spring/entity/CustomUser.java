@@ -33,7 +33,11 @@ public class CustomUser extends User{
     public String getName() {
         return member.getName();
     }
-
+    
+    public String getPhone() {
+    	return member.getPhone();
+    }
+    
     public String getNickname() {
         return member.getNickname();
     }
