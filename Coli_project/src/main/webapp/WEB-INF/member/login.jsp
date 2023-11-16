@@ -65,9 +65,8 @@
 		  </ul>
 		  
 		  <!-- Form -->
-		  <form action="#" method="post" class="login-form">
+		  <form action="" method="post" class="login-form">
 		    <!-- id input -->
-		    <!-- @@@@@@@@@@@@@@@@@@@@@@@@로그인@@@@@@@@@@@@@@@@@@@@@@@ -->
 		    <div class="input__block signin-input__block">
 		       <input type="text" name="username" placeholder="id" class="input" id="id"   />
 		    </div>
@@ -75,7 +74,6 @@
 		    <div class="input__block signin-input__block">
 		       <input type="password" name="password" placeholder="Password" class="input" id="password"    />
 		    </div>
-		    <!-- @@@@@@@@@@@@@@@@@@@@@@@@로그인@@@@@@@@@@@@@@@@@@@@@@@ -->
 		    <!-- repeat password input -->
 		    <div class="input__block signup-input__block">
 		       <input type="password" name="passwordConfirmation" placeholder="Repeat password" class="input" id="passwordConfirmation" />
@@ -130,7 +128,7 @@
 		<script src="${cpath}/js/plugins.js"></script>
 		<script src="${cpath}/js/script.js"></script>
 		
-			<script type="text/javascript">
+<script type="text/javascript">
 			$(document).ready(function(){
 			    let signup = $("#signup");
 			    let signin = $("#signin");
@@ -176,32 +174,6 @@
 			        e.preventDefault();
 			        $(".input").val("");
 			    });
-<<<<<<< HEAD
-			    $(".login-form").find(".signup-input__block").css("display", "block");
-			    signin_btn.text("Sign up");
-			    $(".login-form").attr("action","${cpath}/member/join");
-			  });
-
-			  //----------- sign in ---------------------
-			  signin.on("click",function(e){
-			    e.preventDefault();
-			    $(this).parent().parent().siblings(".login-h1").text("SIGN IN");
-			    $(this).parent().css("opacity","1");
-			    $(this).parent().siblings().css("opacity",".6");
-			    first_input.css("display", "block");
-			    hidden_input.css("display", "none");
-			    signin_btn.text("Sign in");
-			    $(".login-form").attr("action", "${cpath}/member/login");
-			  });
-
-			  //----------- reset ---------------------
-			  reset.on("click",function(e){
-			    e.preventDefault();
-			    $(this).parent().parent().siblings(".login-form")
-			    .find(".input__block").find(".input").val("");
-			  });
-=======
->>>>>>> chiwoo
 			});
 			</script>
 

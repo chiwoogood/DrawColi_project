@@ -8,6 +8,10 @@
 <sec:authentication property="principal" var="userDetails" />
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 
+<c:set var="user" value="${SPRING_SECURITY_CONTEXT.authentication.principal}" />
+
+<c:set var="auth" value="${SPRING_SECURITY_CONTEXT.authentication.authorities}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,8 +83,10 @@
 	    <input type="checkbox" id="options-view-button">
 	    <div id="select-button" class="brd">
 	      <div id="selected-value">
-	      
-	        <span>aewfeawfew1111</span>
+	      <c:if test="${not empty user}">
+		    <p>안녕하세요, <c:out value="${user.username}"/>님!</p>
+		  </c:if>
+	        
 	      </div>
 	      <div id="chevrons">
 	        <i class="fas fa-chevron-up"></i>
