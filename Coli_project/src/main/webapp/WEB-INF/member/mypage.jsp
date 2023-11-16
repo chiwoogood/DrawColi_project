@@ -53,15 +53,15 @@
 				<ul>
 					<li class="">
             			<strong class="title">이름</strong>
-            			<strong class="data use">&nbsp;<span>${member.name}</span></strong>
+            			<strong class="data use">&nbsp;<span>${user.name}</span></strong>
         			</li>
 			        <li class="">
 			            <strong class="title">이메일</strong>
-			            <strong class="data"><span>${member.email}</span></strong>
+			            <strong class="data"><span>${user.email}</span></strong>
 			        </li>
 			        <li class="">
 			            <strong class="title">닉네임</strong>
-			            <strong class="data"><span>${member.nickname}</span></strong>
+			            <strong class="data"><span>${user.nickname}</span></strong>
 			        </li>
 			        <li class="displaynone">
 			           <strong class="title"></strong>

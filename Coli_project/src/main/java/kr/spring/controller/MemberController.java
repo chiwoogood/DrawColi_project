@@ -12,41 +12,39 @@ import kr.spring.entity.Member;
 import kr.spring.service.MemberService;
 
 @Controller
-@RequestMapping("/member/*")
+@RequestMapping("member/*")
 public class MemberController {
+   
+   @Autowired
+   private MemberService memberService;
+   
+   @GetMapping("/login")
+   public String login() {
+      return "member/login";
+   }
+   
+   @PostMapping("/join")
+   public String join(Member vo, Model model) {
+       try {
+           boolean joinResult = memberService.join(vo);
+           if (joinResult) {
+               return "redirect:login";
+           }
+       } catch (PasswordNotMatchException e) {
+           // PasswordNotMatchException이 발생한 경우
+           model.addAttribute("error", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+           return "member/login";
+       } catch (Exception e) {
+           // 기타 예외 처리
+           model.addAttribute("error", "회원가입 중 오류가 발생했습니다.");
+           return "member/login";
+       }
 
-	
-	@Autowired
-	private MemberService memberService;
-	
-	@GetMapping("/login")
-	public String login(Member vo) {
-		return "member/login";
-	}
-	
-	@PostMapping("/join")
-	public String join(Member vo, Model model) {
-	    try {
-	        boolean joinResult = memberService.join(vo);
-	        if (joinResult) {
-	            return "redirect:login";
-	        }
-	    } catch (PasswordNotMatchException e) {
-	        // PasswordNotMatchException이 발생한 경우
-	        model.addAttribute("error", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-	        return "member/login";
-	    } catch (Exception e) {
-	        // 기타 예외 처리
-	        model.addAttribute("error", "회원가입 중 오류가 발생했습니다.");
-	        return "member/login";
-	    }
-
-	    // 비밀번호가 일치하지 않거나 다른 예외가 발생한 경우 회원가입 페이지로 이동
-	    return "member/login";
-	}
-
-
-    @PostMapping("/login")
+       // 비밀번호가 일치하지 않거나 다른 예외가 발생한 경우 회원가입 페이지로 이동
+       return "member/login";
+   }
+   
+   @PostMapping("/login")
     public String login(Member vo, Model model) {
         if (memberService.login(vo)) {
             // 로그인 성공
@@ -59,5 +57,16 @@ public class MemberController {
             return "member/login";
         }
     }
-    
+   
+   @GetMapping("/mypage")
+   public String mypage() {
+      return "member/mypage";
+   }
+   
+   @GetMapping("/modify")
+   public String modify() {
+      return "member/modify";
+   }
+   
+   
 }

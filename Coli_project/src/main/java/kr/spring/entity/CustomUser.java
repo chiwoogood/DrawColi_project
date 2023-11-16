@@ -22,4 +22,24 @@ public class CustomUser extends User{
 		
 		this.member = member;
 	}
+    public String getUsername() {
+        return member.getUsername();
+    }
+
+    public String getPassword() {
+        return member.getPassword();
+    }
+
+    public String getName() {
+        return member.getName();
+    }
+
+    public String getNickname() {
+        return member.getNickname();
+    }
+
+    public String getEmail() {
+        return member.getEmail();
+    }
+	
 }
