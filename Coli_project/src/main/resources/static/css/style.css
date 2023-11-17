@@ -1991,8 +1991,6 @@ body.nav-active .nav__block .nav__block-item {
   transform: translateX(0%);
 }
 
-
-
 /* 4.2 Homepage Slider
 --------------------------------------------------------------*/
 #intro {
@@ -3940,7 +3938,7 @@ input[type="radio"] {
 }
 
 #myshopMain .shopMain .inBox {
-    width: 250px;
+    width: 300px;
     height: 220px;
     vertical-align: middle;
     display: table-cell;

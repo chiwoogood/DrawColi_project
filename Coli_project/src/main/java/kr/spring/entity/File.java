@@ -27,14 +27,11 @@ public class File {
 	
 	@ManyToOne
 	@JoinColumn(name = "atc_idx", referencedColumnName = "atc_id")
-	private Article atc_idx;
+	private Article atc_idx; // Article을 참조하는 외래키
 	
-	private String file_path;
+	private String file_path; //파일 경로
 
-	private String file_ext;
+	private String file_ext; //파일 확장자
 	
-	@Column(insertable = false, updatable = false, columnDefinition = "datetime default now()")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date uploaded_at;
 	
 }

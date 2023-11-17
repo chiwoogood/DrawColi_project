@@ -1,5 +1,7 @@
 package kr.spring.service;
 
-public interface FileService {
+import kr.spring.entity.File;
 
+public interface FileService {
+    void save(File file);
 }

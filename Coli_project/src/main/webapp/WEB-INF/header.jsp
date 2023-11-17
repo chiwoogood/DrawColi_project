@@ -40,7 +40,7 @@
                      <li class="nav__list-item"><a href="${cpath}/member/login" class="hover-target">LogIn</a></li>
                      <li class="nav__list-item"><a href="${cpath}/plan" class="hover-target">Plan</a></li>
                      <li class="nav__list-item"><a href="${cpath}/draw" class="hover-target">Draw</a></li>
-                     <li class="nav__list-item"><a href="${cpath}/list" class="hover-target">Gallery</a>
+                     <li class="nav__list-item"><a href="${cpath}/board/gallery" class="hover-target">Gallery</a>
                      </li>
                      <li class="nav__list-item"><a href="contact.html" class="hover-target">guide</a></li>
                   </ul>
@@ -60,7 +60,12 @@
                   <ul class="list-unstyled nav__block-item">
                      <li><a href="${cpath}/member" class="text-white">My Work</a></li>
                      <li><a href="${cpath}/member/modify" class="text-white">My Account</a></li>
-                     <li><a href="${cpath}/member/logout" class="text-white">Logout</a></li>
+                     <c:if test="${not empty user}">
+                        <li><a href="${cpath}/member/logout" class="text-white">Logout</a></li>
+                     </c:if>
+                     <c:if test="${empty user}">
+                        <li><a href="${cpath}/member/login" class="text-white">Login</a></li>
+                     </c:if>
                   </ul>
                </div>
             </div>

@@ -7,9 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import lombok.Data;
@@ -31,9 +33,12 @@ public class Comment {
 
 	private String cmt_content;
 	
-	@Column(insertable = false, updatable = false, columnDefinition = "datetime default now()")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
+	private LocalDateTime created_at;
+
+	@PrePersist
+	protected void onCreate() {
+	    created_at = LocalDateTime.now();
+	}
     
 	@ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "username") // 외래키 설정, Member 테이블의 username을 참조
