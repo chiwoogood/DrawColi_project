@@ -2,15 +2,14 @@ package kr.spring.entity;
 
 
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 import lombok.Data;
 import lombok.ToString;

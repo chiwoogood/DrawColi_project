@@ -77,7 +77,7 @@
 		                <li>AI 드로잉 (무제한)</li>
 		                <li>모델 및 캐릭터 다운로드 (무제한)</li>
 		              </ul>
-		              <a href="${cpath}/price" class="btn pricing-plan-purchase-btn">Purchase</a>
+		              <a href="${cpath}/price?plan=Standard&amount=16000" class="btn pricing-plan-purchase-btn">Purchase</a>
 		            </div>
 		          </div>
 		        </div>
@@ -93,7 +93,7 @@
 		                <li>AI 드로잉 (무제한)</li>
 		                <li>모델 및 캐릭터 다운로드 (무제한)</li>
 		              </ul>
-		              <a href="${cpath}/price" class="btn pricing-plan-purchase-btn">Purchase</a>
+		              <a href="${cpath}/price?plan=Premium&amount=24000" class="btn pricing-plan-purchase-btn">Purchase</a>
 		            </div>
 		          </div>
 		        </div>

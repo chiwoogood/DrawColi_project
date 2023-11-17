@@ -19,4 +19,9 @@ public class HomeController {
 	public String draw() {
 		return "draw";
 	}
+	
+	@RequestMapping("price")
+	public String price() {
+		return "price";
+	}
 }
