@@ -1,6 +1,7 @@
 package kr.spring.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,11 +10,11 @@ import javax.persistence.GenerationType;
 
 import lombok.Data;
 import lombok.ToString;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 
 @Entity
 @ToString
@@ -29,17 +30,19 @@ public class Article {
 	
 	private String atc_content;
 	
-	@Column(insertable = false, updatable = false, columnDefinition = "datetime default now()")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
+	private LocalDateTime created_at;
 	
-	@Column(insertable = false, updatable = false, columnDefinition = "datetime default now()")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date updated_at;
+	@PrePersist
+	protected void onCreate() {
+	    created_at = LocalDateTime.now();
+	}
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private Member user_id;
+	
+	@OneToMany
+	private List<File> files;
 	
 	private int atc_views;
 	private int atc_likes;

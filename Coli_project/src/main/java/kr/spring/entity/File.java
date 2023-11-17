@@ -30,10 +30,11 @@ public class File {
 	private Article atc_idx;
 	
 	private String file_path;
-	private int file_size;
+
 	private String file_ext;
 	
 	@Column(insertable = false, updatable = false, columnDefinition = "datetime default now()")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date uploaded_at;
+	
 }
