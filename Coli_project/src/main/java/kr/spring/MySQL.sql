@@ -1,2 +1,2 @@
-SELECT * FROM member;
+SELECT * FROM file;
 

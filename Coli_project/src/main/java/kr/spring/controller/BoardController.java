@@ -22,8 +22,8 @@ public class BoardController {
    }
    
    @PostMapping("/upload")
-    @ResponseBody
-    public String handleFileUpload(@RequestParam("file") MultipartFile file) {
+   @ResponseBody
+   public String handleFileUpload(@RequestParam("file") MultipartFile file) {
         // 파일 업로드 및 DB에 저장 로직 추가
         // File 엔티티를 생성하고 파일 정보를 저장
         File fileEntity = new File();
