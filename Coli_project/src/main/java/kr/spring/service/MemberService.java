@@ -1,5 +1,7 @@
 package kr.spring.service;
 
+
+
 import kr.spring.entity.Member;
 import kr.spring.exception.PasswordNotMatchException;
 
@@ -11,6 +13,5 @@ public interface MemberService {
     boolean modify(Member vo) throws PasswordNotMatchException;
     
     boolean isPasswordMatch(String password, String passwordConfirmation);
-    
     
 }

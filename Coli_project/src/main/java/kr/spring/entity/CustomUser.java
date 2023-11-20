@@ -16,7 +16,9 @@ public class CustomUser extends User{
 	// 그걸 해주는 클래스가 바로 CustomUser 클래스
 	
 	private Member member;
-
+	
+	private CustomFile file;
+	
 	public CustomUser(Member member) {
 		super(member.getUsername(), member.getPassword(), AuthorityUtils.createAuthorityList("ROLE_" + member.getRole().toString()));
 		

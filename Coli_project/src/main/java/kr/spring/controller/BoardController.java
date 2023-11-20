@@ -29,17 +29,16 @@ public class BoardController {
 
    
    @PostMapping("/upload")
-   @ResponseBody
-   public String handleFileUpload(@RequestParam("file") MultipartFile file) {
+   public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam("username") String username) {
        if (file.isEmpty()) {
            return "업로드할 파일을 선택해주세요.";
        }
        try {
-           fileService.saveFile(file);
-           return "업로드가 완료되었습니다.";
+           fileService.saveFile(file,username);
+           return "member/mygallery";
        } catch (IOException e) {
            e.printStackTrace();
-           return "파일 업로드 중 오류가 발생했습니다.";
+           return "member/mygallery";
        }
    }
    

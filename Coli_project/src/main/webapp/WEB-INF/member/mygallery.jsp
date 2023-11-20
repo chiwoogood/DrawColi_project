@@ -83,7 +83,7 @@
            <div class="modal-dialog" role="document">
              <div class="modal-content">
                <div class="modal-header">
-                 <h5 class="modal-title" id="uploadModalLabel">이미지 업로드</h5>
+                 <h5 class="modal-title" id="uploadModalLabel" style="width: 100px;">글쓰기</h5>
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                    <span aria-hidden="true">&times;</span>
                  </button>
@@ -116,7 +116,7 @@
 
       <!-- 갤러리 이미지 -->
       <div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-3" data-aos="fade-up">
-          <!-- 이미지 아이템들을 동적으로 추가할 부분 -->
+      
       </div>
 
    </div>
@@ -148,21 +148,50 @@
            });
        });
    </script>
-   <script>
-     $(document).ready(function () {
-       // 페이지가 로드되면 실행되는 스크립트
-       $('[data-toggle="modal"]').click(function () {
-         var targetModal = $(this).data('target');
-         $(targetModal).modal('show');
-       });
-     });
-     
-      // close 버튼 클릭 시 모달 닫기
-     $('.close').on('click', function() {
-         $('#uploadModal').modal('hide');
-     });
-   </script>
-   
+	<script>
+	$(document).ready(function () {
+	    // 현재 로그인한 사용자의 username
+	    var username = '${user.member.username}'; // JSP 표현식을 사용하여 username 설정
+	
+	    // 모달 표시
+	    $('[data-toggle="modal"]').click(function () {
+	        var targetModal = $(this).data('target');
+	        $(targetModal).modal('show');
+	    });
+	
+	    // 모달 닫기
+	    $('.close').on('click', function() {
+	        $('#uploadModal').modal('hide');
+	    });
+	
+	    // 이미지 업로드 처리
+	    $('#uploadForm').submit(function(e) {
+	        e.preventDefault(); // 기본 폼 제출 동작 방지
+	
+	        var formData = new FormData(this); // 폼 데이터 생성
+	        formData.append('username', username); // username 추가
+	
+	        $.ajax({
+	            url: '${cpath}/board/upload', // 업로드 URL
+	            type: 'POST',
+	            data: formData,
+	            contentType: false,
+	            processData: false,
+	            success: function(response) {
+	                // 업로드 성공 시 처리
+	                console.log('Upload success');
+	                $('#uploadModal').modal('hide'); // 모달 닫기
+	            },
+	            error: function() {
+	                // 업로드 실패 시 처리
+	                console.log('Upload error');
+	            }
+	        });
+	    });
+	});
+
+	</script>
+
       
 </body>
 

@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,13 +16,16 @@ import kr.spring.repository.FileRepository;  // 'FileRepository' 인터페이스
 @Service
 public class FileServiceImpl implements FileService {
 
-    @Autowired
+	
+	@Autowired
     private FileRepository fileRepository;
     
+    
     @Override
-    public void saveFile(MultipartFile file) throws IOException {
-        String directory = "C:\\ColiFileDirectory"; // 파일 저장 경로
-        Path path = Paths.get(directory);
+    public void saveFile(MultipartFile file, String username) throws IOException {
+        // 회원별 고유한 디렉토리 생성
+        String userDirectory = "C:\\ColiFileDirectory\\" + username;
+        Path path = Paths.get(userDirectory);
         if (!Files.exists(path)) {
             Files.createDirectories(path);
         }
@@ -37,4 +41,7 @@ public class FileServiceImpl implements FileService {
 
         fileRepository.save(fileEntity);
     }
+    
+    
+
 }
