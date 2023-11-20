@@ -1,7 +1,9 @@
 package kr.spring.service;
 
-import kr.spring.entity.File;
+import java.io.IOException;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public interface FileService {
-    void save(File file);
+	void saveFile(MultipartFile file) throws IOException;
 }

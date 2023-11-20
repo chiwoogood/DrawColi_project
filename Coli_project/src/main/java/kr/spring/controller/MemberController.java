@@ -90,10 +90,16 @@ public class MemberController {
        // 예외가 발생했거나 수정에 실패한 경우, modify 뷰로 이동
        return "member/modify";
 	   }
+   
 	   @GetMapping("/myplan")
 	   public String myplan() {
 	      return "member/myplan";
 	   }
+	   
+	@GetMapping("/mygallery")
+	public String mygallery() {
+		return "member/mygallery";
+	}
 
 
    

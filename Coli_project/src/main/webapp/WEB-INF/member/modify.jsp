@@ -63,7 +63,6 @@
                   <p>개인정보를 수정하세요.</p>
 
                   <form id="form-contact" method="post" class="form-light" action="${cpath}/member/modify" >
-                     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                      <p>
                         <input type="password" name="password" placeholder="변경할 비밀번호 입력" required>
                      </p><p>

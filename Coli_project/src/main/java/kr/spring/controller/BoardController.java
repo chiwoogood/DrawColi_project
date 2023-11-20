@@ -1,5 +1,10 @@
 package kr.spring.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,19 +26,22 @@ public class BoardController {
       return "board/gallery";
    }
    
+
+   
    @PostMapping("/upload")
    @ResponseBody
    public String handleFileUpload(@RequestParam("file") MultipartFile file) {
-        // 파일 업로드 및 DB에 저장 로직 추가
-        // File 엔티티를 생성하고 파일 정보를 저장
-        File fileEntity = new File();
-        // 여기에서 필요한 파일 정보를 File 엔티티에 설정
-        // fileEntity.setFilePath("your_file_path");
-        // fileEntity.setFileSize(your_file_size);
-        // fileEntity.setFileExt("your_file_extension");
-        fileService.save(fileEntity); // FileService를 통해 파일 정보를 저장
-        return "업로드가 완료되었습니다.";
-    }
+       if (file.isEmpty()) {
+           return "업로드할 파일을 선택해주세요.";
+       }
+       try {
+           fileService.saveFile(file);
+           return "업로드가 완료되었습니다.";
+       } catch (IOException e) {
+           e.printStackTrace();
+           return "파일 업로드 중 오류가 발생했습니다.";
+       }
+   }
    
    
 }
