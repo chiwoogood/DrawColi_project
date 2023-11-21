@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 <c:set var="user" value="${SPRING_SECURITY_CONTEXT.authentication.principal}" />
 <c:set var="auth" value="${SPRING_SECURITY_CONTEXT.authentication.authorities}" />
@@ -114,11 +115,15 @@
 
       </div>
 
-      <!-- 갤러리 이미지 -->
-      <div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-3" data-aos="fade-up">
-      
-      </div>
+		<c:set var="username" value="${user.member.username}" />
+		<div id="imageContainer">
+		    <!-- 모델에서 제공한 imageFiles 속성을 사용하여 이미지 표시 -->
+		    <c:forEach var="imageFileName" items="${imageFiles}">
+		        <img src="<%= request.getContextPath() %>/static/userImages/${user.member.username}/${imageFileName}">
+		    </c:forEach>
+		</div>
 
+		
    </div>
 </section>
 </div>

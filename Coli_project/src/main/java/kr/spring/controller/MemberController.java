@@ -1,7 +1,7 @@
 package kr.spring.controller;
 
-import java.security.Principal;
-import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.spring.exception.PasswordNotMatchException;
-import kr.spring.entity.File;
+
 import kr.spring.entity.Member;
-import kr.spring.service.FileService;
+
 import kr.spring.service.MemberService;
 
 @Controller
