@@ -21,6 +21,7 @@ public class Member {
 	
 	@Id
 	private String username; // Spring Security에서는 id가 아닌 username으로 지정
+	
 	private String password; // Spring Security에서는 pw가 아닌 password로 지정
 	private String name; 
 	

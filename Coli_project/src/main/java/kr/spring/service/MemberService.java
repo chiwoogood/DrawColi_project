@@ -10,7 +10,7 @@ public interface MemberService {
     
     boolean login(Member vo);
     
-    boolean modify(Member vo) throws PasswordNotMatchException;
+    public void modify(Member vo);
     
     boolean isPasswordMatch(String password, String passwordConfirmation);
     

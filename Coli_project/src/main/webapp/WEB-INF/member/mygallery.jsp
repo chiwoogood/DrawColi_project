@@ -119,11 +119,10 @@
 		<div id="imageContainer">
 		    <!-- 모델에서 제공한 imageFiles 속성을 사용하여 이미지 표시 -->
 		    <c:forEach var="imageFileName" items="${imageFiles}">
-		        <img src="<%= request.getContextPath() %>/static/userImages/${user.member.username}/${imageFileName}">
+		        <img src="static/userImages/${user.member.username}/${imageFileName}">
 		    </c:forEach>
 		</div>
 
-		
    </div>
 </section>
 </div>
@@ -174,7 +173,7 @@
 	        e.preventDefault(); // 기본 폼 제출 동작 방지
 	
 	        var formData = new FormData(this); // 폼 데이터 생성
-	        formData.append('username', username); // username 추가
+	        formData.append('username', ${user.member.username}); // username 추가
 	
 	        $.ajax({
 	            url: '${cpath}/board/upload', // 업로드 URL

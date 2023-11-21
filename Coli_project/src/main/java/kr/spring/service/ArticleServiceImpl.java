@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.spring.entity.Article;
-
+import kr.spring.entity.Member;
 import kr.spring.repository.ArticleRepository;
 
 
@@ -40,10 +40,9 @@ public class ArticleServiceImpl implements ArticleService{
    }
 
    @Override
-   public void update(Article vo) {
-      // JPA -> sava메소드는
-      // 새로운 pk값 또는 없는 값이 들어온다면 insert 기능을
-      // 기존에 존재하는 pk값이 들어온다면 update 기능을
+   public void modify(Article vo) {
+   	System.out.println(vo);
+
       articleRepository.save(vo);
    }
 

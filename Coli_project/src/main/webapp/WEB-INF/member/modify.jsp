@@ -64,11 +64,6 @@
 
                   <form id="form-contact" method="post" class="form-light" action="${cpath}/member/modify" >
                      <p>
-                        <input type="password" name="password" placeholder="변경할 비밀번호 입력" required>
-                     </p><p>
-                        <input type="password" name="passwordConfirmation" placeholder="비밀번호 확인" required>
-                     </p>
-                     <p>
                         <input type="text" name="nickname" placeholder="닉네임 수정" required>
                      </p>
                      <p>
@@ -78,10 +73,10 @@
                         <input type="tel" name="phone" placeholder="핸드폰 번호 변경" required>
                      </p>
                      <button class="btn btn-accent btn-rounded btn-xlarge btn-full">Submit</button>
+					<input type="hidden" name="username" value="${user.member.username}">
                   </form>
                </div>
             </div><!--left-content-->
-			
             <div class="col-md-6">
                <div class="right-content">
 

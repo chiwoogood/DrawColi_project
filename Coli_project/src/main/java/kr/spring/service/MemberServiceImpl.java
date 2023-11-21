@@ -3,6 +3,8 @@ package kr.spring.service;
 
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -38,27 +40,26 @@ public class MemberServiceImpl implements MemberService {
 
         return existingMember != null && passwordEncoder.matches(vo.getPassword(), existingMember.getPassword());
     }
-
+    
     @Override
-    public boolean modify(Member vo) throws PasswordNotMatchException {
-        if (!isPasswordMatch(vo.getPassword(), vo.getPasswordConfirmation())) {
-            throw new PasswordNotMatchException("비밀번호가 일치하지 않습니다.");
+    public void modify(Member vo) {
+        // 기존 회원 정보를 데이터베이스에서 가져옴
+    	System.out.println(vo);
+        Optional<Member> member = memberRepository.findById(vo.getUsername());
+//      
+        Member existingMember = member.get();
+        if (existingMember != null) {
+            // 변경할 속성들만 업데이트
+            existingMember.setNickname(vo.getNickname());
+            existingMember.setPhone(vo.getPhone());
+            existingMember.setEmail(vo.getEmail());
+            System.out.println(existingMember);
+            // 수정된 회원 정보 저장
+            memberRepository.save(existingMember);
+//    		memberRepository.modify(vo.getEmail(),vo.getPhone(),vo.getNickname(),vo.getUsername());
         }
-        Member existingMember = memberRepository.findById(vo.getUsername()).orElse(null);
-
-        if (existingMember == null) {
-            return false; // 회원 정보가 존재하지 않는 경우
-        }
-
-        // 기존 회원 정보 업데이트
-        existingMember.setPassword(passwordEncoder.encode(vo.getPassword()));
-        existingMember.setPhone(vo.getPhone());
-        existingMember.setEmail(vo.getEmail());
-        existingMember.setNickname(vo.getNickname());
-
-        memberRepository.save(existingMember);
-        return true;
     }
+
 
 
     @Override

@@ -69,31 +69,14 @@ public class MemberController {
    }
    
    @GetMapping("/modify")
-   public String modify(Member vo) {
+   public String modify() {
 	   return "member/modify";
    }
    
    @PostMapping("/modify")
-   public String modify(Member vo, Model model) {
-       try {
-           boolean modifyResult = memberService.modify(vo);
-           if (modifyResult) {
-               // 수정 성공 시, mypage로 리다이렉트
-               return "redirect:/member/mypage";
-           }
-           // 수정이 실패한 경우, 사용자에게 알림
-           model.addAttribute("error", "회원 정보 수정에 실패했습니다.");
-       } catch (PasswordNotMatchException e) {
-           // 비밀번호 불일치 예외 처리
-           model.addAttribute("error", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-       } catch (Exception e) {
-           // 기타 예외 처리
-           model.addAttribute("error", "회원정보 수정 중 오류가 발생했습니다.");
-           // 로깅을 추가하는 것이 좋습니다 (예: e.printStackTrace();)
-       }
-
-       // 예외가 발생했거나 수정에 실패한 경우, modify 뷰로 이동
-       return "member/modify";
+   public String modify(Member vo) {
+	   memberService.modify(vo);
+       return "member/mypage";
 	   }
    
 	   @GetMapping("/myplan")

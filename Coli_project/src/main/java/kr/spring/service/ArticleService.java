@@ -14,6 +14,6 @@ public interface ArticleService {
 
    public void delete(Long atc_id);
 
-   public void update(Article vo);
+   public void modify(Article vo);
    
 }

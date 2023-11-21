@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import kr.spring.entity.Article;
+import kr.spring.service.ArticleService;
 import kr.spring.service.FileService;
 
 @Controller
@@ -18,7 +20,9 @@ public class BoardController {
    
    @Autowired
     private FileService fileService;
-
+   
+   @Autowired
+   private ArticleService articleService;
    
    @GetMapping("/mygallery/{username}")
    public String userGallery(@PathVariable String username, Model model) {
@@ -50,5 +54,22 @@ public class BoardController {
 	   return "board/boardform";
    }
    
+   @PostMapping("/register")
+   public String register(Article vo) {
+	   articleService.register(vo);
+	   return "redirect:/board/gallery";
+   }
+   
+   @GetMapping("/remove")
+   public String remove(@RequestParam("atc_id")long atc_id) {
+	   articleService.delete(atc_id);
+	   return "redirect:/board/gallery";
+   }
+   
+   @PostMapping("/modify")
+   public String modify(Article vo) {
+	   articleService.modify(vo);
+	   return "redirect:/board/gallery";
+   }
    
 }
