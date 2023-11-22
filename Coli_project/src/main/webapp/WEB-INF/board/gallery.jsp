@@ -27,6 +27,7 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
    <link rel="stylesheet" type="text/css" href="${cpath}/css/style.css">
    <link rel="stylesheet" type="text/css" href="${cpath}/css/pricing-plan.css">
+   <link rel="stylesheet" type="text/css" href="${cpath}/css/form.css">
    
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,78 +51,85 @@
       </div>
       </section>
       
-     <section id="portfolio" class="scrollspy-section bg-dark padding-large">
-   <div class="container">
-
-      <div class="row">
-         <div class="col-md-12">
-
-            <div class="section-header">
-               <div class="title">
-                  <span>드로콜리 회원들의 작품을 감상하세요.</span>
+      <div id="wrap" class="layout">
+         <div id="container" style="margin-top: 0px;">
+            <div id="contents">
+               <div class="xans-element- xans-product xans-product-headcategory title ">
+                  <p class="banner"></p> 
+                  <h2>
+                     <span>user gallery</span>
+                  </h2>
                </div>
-               <h2 class="section-title light">Gallery</h2>
+               <div class="xans-element- xans-product xans-product-normalpackage ">
+                  <div class="xans-element- xans-product xans-product-normalmenu ">
+                     <div class="function">
+                        <p class="prdCount">
+                        TOTAL : 
+                        <strong>44</strong>
+                        개
+                        </p>                        
+                     </div>
+                  </div>
+                  <div class="xans-element- xans-product xans-product-listnormal ec-base-product">
+                     <ul class="prdList grid3">
+                        <!-- 반복 -->
+                        <li id="anchorBoxId_367" class="xans-record-">
+                           <div class="thumbnail">
+                              <div class="prdImg">
+                                 <a href="#" name="">
+                                    <img src="" id="" alt="">
+                                 </a>
+                              </div>
+                              <div class="description" style="cursor:text;">
+                                 <strong class="name">
+                                    <a href="#">
+                                       <span style="font-size:12px;color:#000000;">글제목</span>
+                                    </a>
+                                 </strong>
+                                 <ul class="xans-element- xans-product xans-product-listitem spec">
+                                    <li class=" xans-record-">
+                                       <strong class="title ">
+                                          <span style="font-size:12px;color:#555555;">작성자</span>
+                                          <!-- 글작성날짜-->
+                                       </strong>
+                                       <span style="font-size:12px;color:#000000;font-weight:bold;">진짜작성자</span>
+                                    </li>
+                                  
+                                 </ul>
+                              </div>
+                           </div>
+                        </li>
+                        
+                          <!-- 반복 -->
+                     </ul>
+                  </div>
+               </div>
+               <div class="xans-element- xans-product xans-product-normalpaging ec-base-paginate">
+                  <a href="#none" class="first">
+                     <img src="${cpath}/images/image/btn_page_first.gif" alt="첫 페이지"> 
+                  </a>
+                  <a href="#none">
+                     <img src="${cpath}/images/image/btn_page_prev.gif"> 
+                  </a>
+                  <ol>
+                  <li class="xans-record-"><a href="?cate_no=27&amp;page=1" class="this">1</a></li>
+                    <li class="xans-record-"><a href="?cate_no=27&amp;page=2" class="other">2</a></li>
+                    <li class="xans-record-"><a href="?cate_no=27&amp;page=3" class="other">3</a></li>
+                    <li class="xans-record-"><a href="?cate_no=27&amp;page=4" class="other">4</a></li>
+                  </ol>
+                  <a href="?cate_no=27&amp;page=2">
+                     <img src="${cpath}/images/image/btn_page_next.gif" alt="다음 페이지">
+                  </a>
+                  <a href="?cate_no=27&amp;page=4" class="last">
+                     <img src="${cpath}/images/image/btn_page_last.gif" alt="마지막 페이지">
+                  </a>
+                  <span class="gRight">
+                  <a href="${cpath}/board/boardform" onclick="" class="Button button-rounded button-normal black">글쓰기</a>
+               </span>
+               </div>
             </div>
          </div>
       </div>
-
-      <div class="row">
-
-         <div id="filters" class="button-group d-flex flex-wrap gap-4 py-5" data-aos="fade-up">
-             <a href="#" class="btn btn-outline-light rounded-pill text-uppercase is-checked" data-filter="*">전체</a>
-             <a href="#" class="btn btn-outline-light rounded-pill text-uppercase" data-filter=".design">3DMODEL</a>
-             <a href="#" class="btn btn-outline-light rounded-pill text-uppercase" data-filter=".interior">CHARACTER</a>
-             <a href="#" class="btn btn-outline-light rounded-pill text-uppercase" data-filter=".landscape">WEBTOON</a>
-         </div>
-         
-         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadModal">
-           내 이미지 업로드
-         </button>
-         
-         <!-- 업로드 모달 -->
-         <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
-           <div class="modal-dialog" role="document">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <h5 class="modal-title" id="uploadModalLabel" style="width: 100px;">글쓰기</h5>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                   <span aria-hidden="true">&times;</span>
-                 </button>
-               </div>
-               <div class="modal-body">
-                 <form id="uploadForm" action="${cpath}/board/upload" method="post" enctype="multipart/form-data">
-                     <div class="form-group">
-                         <label for="file">이미지 선택</label>
-                         <input type="file" class="form-control" id="file" name="file" accept="image/*">
-                     </div>
-                     <div class="form-group">
-                         <label for="category">카테고리 선택</label>
-                         <select class="form-control" id="category" name="category">
-                             <option value="design">3DMODEL</option>
-                             <option value="interior">CHARACTER</option>
-                             <option value="landscape">WEBTOON</option>
-                         </select>
-                     </div>
-                     <button type="submit" class="btn btn-primary">업로드</button>
-                 </form>
-                </div>
-               <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary close" data-dismiss="modal">닫기</button>
-               </div>
-             </div>
-           </div>
-         </div>
-
-      </div>
-
-      <!-- 갤러리 이미지 -->
-      <div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-3" data-aos="fade-up">
-          <!-- 이미지 아이템들을 동적으로 추가할 부분 -->
-      </div>
-
-   </div>
-</section>
-</div>
 
    <script src="${cpath}/js/jquery-1.11.0.min.js"></script>
    <script src="${cpath}/js/ui-easing.js"></script>
@@ -133,37 +141,6 @@
    <script src="${cpath}/js/script.js"></script>
    
    
-   <script>
-       $(document).ready(function () {
-           // Isotope 초기화
-           var $grid = $('.grid').isotope({
-               itemSelector: '.portfolio-item',
-               layoutMode: 'fitRows'
-           });
-   
-           // 필터링 버튼 클릭 이벤트 처리
-           $('#filters a').on('click', function () {
-               var filterValue = $(this).attr('data-filter');
-               $grid.isotope({ filter: filterValue });
-           });
-       });
-   </script>
-   <script>
-     $(document).ready(function () {
-       // 페이지가 로드되면 실행되는 스크립트
-       $('[data-toggle="modal"]').click(function () {
-         var targetModal = $(this).data('target');
-         $(targetModal).modal('show');
-       });
-     });
-     
-      // close 버튼 클릭 시 모달 닫기
-     $('.close').on('click', function() {
-         $('#uploadModal').modal('hide');
-     });
-   </script>
-   
-      
 </body>
 
 </html>

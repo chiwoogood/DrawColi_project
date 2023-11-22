@@ -19,6 +19,8 @@ public class ArticleServiceImpl implements ArticleService{
 
    @Autowired
    private ArticleRepository articleRepository;
+   
+   @Autowired
    private MemberRepository memberRepository;
    
    @Override
@@ -29,12 +31,13 @@ public class ArticleServiceImpl implements ArticleService{
 
    @Override
    public void register(Article vo) {
-//      String username = SecurityContextHolder.getContext().getAuthentication().getName();
-//      System.out.println("현재 사용자의 username: " + username);
-//      Member writer = memberRepository.findById(username).orElse(null);
-//      vo.setWriter_id(writer);
-//      articleRepository.save(vo);
+       String username = SecurityContextHolder.getContext().getAuthentication().getName();
+       System.out.println("현재 사용자의 username: " + username);
+       Member writer = memberRepository.findById(username).orElse(null);
+       vo.setWriter_id(writer);
+       articleRepository.save(vo);
    }
+
 
 
    @Override
@@ -53,6 +56,12 @@ public class ArticleServiceImpl implements ArticleService{
    	System.out.println(vo);
 
       articleRepository.save(vo);
+   }
+   
+   @Override
+   public Article Detail(long atc_id) {
+       // 게시글 정보를 데이터베이스에서 가져오는 로직
+       return articleRepository.findById(atc_id).orElse(null);
    }
 
 }

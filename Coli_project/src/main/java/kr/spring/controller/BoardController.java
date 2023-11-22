@@ -1,8 +1,10 @@
 package kr.spring.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -36,6 +38,7 @@ public class BoardController {
    @PostMapping("/register")
    public String register(Article vo) {
 	   articleService.register(vo);
+	   System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + vo);
 	   return "member/mypage";
    }
    
@@ -53,8 +56,25 @@ public class BoardController {
    
    @PostMapping("/articleFileUpload")
    public String articleFileUpload(ArticleFile articleFile) {
-	   articleFileService.save(articleFile);
+//	   articleFileService.save(articleFile);
 	   return "";
    }
    
+   @RequestMapping("/gallery")
+   public String gallery() {
+	   return "board/gallery";
+   }
+   
+   @GetMapping("/detail/{atc_id}")
+   public String detail(@PathVariable long atc_id, Model model) {
+	   
+//   
+//	   Article article = articleService.Detail(atc_id);
+//	   
+//	   List<ArticleFile> articleFiles = articleFileService.getArticleFiles(atc_id);
+//	   
+//	   model.addAttribute("article", article);
+//	   model.addAttribute("articleFiles", articleFiles);
+   return "board/detail/" + atc_id;
+   }
 }

@@ -7,5 +7,5 @@ import kr.spring.entity.ArticleFile;
 
 @Repository
 public interface ArticleFileRepository extends JpaRepository<ArticleFile, Long>{
-
+	
 }

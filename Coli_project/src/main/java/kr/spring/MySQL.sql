@@ -1,3 +1,2 @@
-SELECT * FROM articlefile;
-
+SELECT * FROM article;
 

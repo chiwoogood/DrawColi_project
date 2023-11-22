@@ -16,4 +16,5 @@ public interface ArticleService {
 
    public void modify(Article vo);
    
+   public Article Detail(long atc_id);
 }
