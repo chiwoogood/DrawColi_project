@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.spring.entity.Article;
-import kr.spring.entity.Member;
 import kr.spring.repository.ArticleRepository;
 
 

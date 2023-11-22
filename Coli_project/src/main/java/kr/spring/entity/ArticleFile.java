@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
 @ToString
 @Data
 
-public class File {
+public class ArticleFile {
    
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)

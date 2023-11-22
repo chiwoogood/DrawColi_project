@@ -17,7 +17,7 @@ public class CustomUser extends User{
 	
 	private Member member;
 	
-	private CustomFile file;
+//	private CustomFile file;
 	
 	public CustomUser(Member member) {
 		super(member.getUsername(), member.getPassword(), AuthorityUtils.createAuthorityList("ROLE_" + member.getRole().toString()));

@@ -1,7 +1,7 @@
 package kr.spring.entity;
 
 import java.time.LocalDateTime;
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +13,6 @@ import lombok.ToString;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 
 @Entity
@@ -38,14 +37,7 @@ public class Article {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private Member user_id;
-	
-	@OneToMany
-	private List<File> files;
-	
-	private int atc_views;
-	private int atc_likes;
-	
-	
+	@JoinColumn(name = "writer_id", referencedColumnName = "username")
+	private Member writer_id;
+
 }

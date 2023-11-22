@@ -1,6 +1,6 @@
 package kr.spring.entity;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +29,6 @@ public class Comment {
     @JoinColumn(name = "atc_idx", referencedColumnName = "atc_id") // 외래키 설정, tb_article 테이블을 참조
     private Article atc_idx;
 	
-
 	private String cmt_content;
 	
 	private LocalDateTime created_at;
@@ -40,6 +39,6 @@ public class Comment {
 	}
     
 	@ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "username") // 외래키 설정, Member 테이블의 username을 참조
-    private Member user_id;
+    @JoinColumn(name = "cmt_writer_id", referencedColumnName = "username") // 외래키 설정, Member 테이블의 username을 참조
+    private Member cmt_writer_id;
 }

@@ -101,16 +101,16 @@
          
          <div id="myshopMain" class="xans-element- xans-myshop xans-myshop-main ">
             <div class="shopMain mygallery">
-               <div class="inBox" onclick="window.open('${cpath}/board/mygallery/${user.member.username}','_self')">
+               <div class="inBox" onclick="window.open('${cpath}/member/mygallery/${user.member.username}','_self')">
                   <img src="${cpath}/images/image/mygallery.png">
                      <h3>
-                        <a href="${cpath}/board/mygallery/${user.member.username}">
+                        <a href="${cpath}/member/mygallery/${user.member.username}">
                            <strong>My Gallery</strong>
                            내 갤러리
                         </a>
                      </h3>
                      <p>
-                        <a href="${cpath}/board/mygallery/${user.member.username}">
+                        <a href="${cpath}/member/mygallery/${user.member.username}">
                         고객님께서 작업하신 내역을 확인하실 수 있습니다.
                         <br>
                         지금까지 작업하신 내역을 확인해보세요.

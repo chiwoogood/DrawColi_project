@@ -3,9 +3,10 @@ package kr.spring.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import kr.spring.entity.UserModel;
+import kr.spring.entity.MyGallery;
+
 
 @Repository
-public interface UserModelRepository extends JpaRepository<UserModel, Long>{
+public interface MyGalleryRepository extends JpaRepository<MyGallery, Long>{
 
 }

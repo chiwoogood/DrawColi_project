@@ -77,19 +77,18 @@ public class MemberController {
    public String modify(Member vo) {
 	   memberService.modify(vo);
        return "member/mypage";
-	   }
+   }
    
-	   @GetMapping("/myplan")
-	   public String myplan() {
-	      return "member/myplan";
-	   }
+   @GetMapping("/myplan")
+   public String myplan() {
+	   return "member/myplan";
+   }
 	   
-		@GetMapping("/mygallery")
-		public String mygallery() {
-			
-			return "member/mygallery";
-		}
-
+	@GetMapping("/mygallery/{username}")
+	public String mygallery() {
+		return "member/mygallery";
+	}
+	
 
    
 }
