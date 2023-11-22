@@ -39,5 +39,7 @@ public class Article {
 	@ManyToOne
 	@JoinColumn(name = "writer_id", referencedColumnName = "username")
 	private Member writer_id;
-
+	
+	private int atc_likes = 0;
+	private int atc_views = 0;
 }

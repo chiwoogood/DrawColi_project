@@ -9,10 +9,5 @@ import kr.spring.entity.Member;
 
 public interface MemberRepository extends JpaRepository<Member, String>{
 	
-	@Modifying
-	@Query("UPDATE Member m SET m.email = :email, m.phone = :phone, m.nickname = :nickname where m.username = :username")
-	public void modify(@Param("email")String email, @Param("phone")String phone, @Param("nickname")String nickname ,@Param("username")String username);
-
-	
 	
 }

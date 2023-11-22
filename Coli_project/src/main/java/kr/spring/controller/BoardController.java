@@ -36,7 +36,7 @@ public class BoardController {
    @PostMapping("/register")
    public String register(Article vo) {
 	   articleService.register(vo);
-	   return "redirect:/board/gallery";
+	   return "member/mypage";
    }
    
    @GetMapping("/remove")

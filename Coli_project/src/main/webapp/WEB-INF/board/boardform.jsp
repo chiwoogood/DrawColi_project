@@ -50,113 +50,120 @@
          </div><!--slider-item-->
       </div>
       </section>
-	   <div id="write-container">
-	    <div id="contents">
-	        <div class="xans-element- xans-board xans-board-writepackage-4 xans-board-writepackage xans-board-4">
-	            <div class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
-	                <div class="title">
-	                    <h2>
-	                        <font color="#555555">COLI GALLERY</font>
-	                    </h2>
-	                    <p>회원님들의 작품을 올려주세요.</p>
-	                </div>
-	            </div>
-	            <!-- 파일 업로드 폼 -->
-	            <form id="fileUploadForm" action="${cpath}/board/articleFileUpload" method="post" target="_self" enctype="multipart/form-data">
-	                <div class="xans-element- xans-board xans-board-write-4 xans-board-write xans-board-4">
-	                    <div class="ec-base-box typeProduct">
-	                        <p class="thumbnail">
-	                            <a href>
-	                                <img id="iPrdImg" src="//img.echosting.cafe24.com/thumb/75x75.gif" onerror="this.src='//img.echosting.cafe24.com/thumb/75x75.gif'">
-	                            </a>
-	                        </p>
-	                        <div class="information">
-	                            <p>대표이미지를 선택해 주세요.</p>
-	                            <p class="button">
-	                                <span>
-	                                    <input type="file" id="fileInput" name="file" style="display: none;">
-	                                    <a href="#none" onclick="document.getElementById('fileInput').click();">
-	                                        <img src="${cpath}/images/image/file_upload.png" alt="파일업로드">
-	                                    </a>
-	                                </span>
-	                            </p>
-	                        </div>
-	                    </div>
-	                    <div class="ec-base-button ">
-	                        <span class="gRight">
-	                            <a href="#none" onclick="submitFileUploadForm();" class="Button button-rounded button-normal black">파일 업로드</a>
-	                        </span>
-	                    </div>
-	                </div>
-	            </form>
-	            
-	            <!-- 글 작성 폼 -->
-	            <form id="articleForm" action="${cpath}/board/register" method="post">
-	                <div class="xans-element- xans-board xans-board-write-4 xans-board-write xans-board-4">
-	                    <div class="ec-base-table typeWrite ">
-	                        <table border="1" summary>
-	                            <caption>글쓰기 폼</caption>
-	                            <colgroup>
-	                                <col style="width:130px;">
-	                                <col style="width:auto;">
-	                            </colgroup>
-	                            <tbody>
-	                                <tr>
-	                                    <th scope="row">제목</th>
-	                                    <td>
-	                                        <input id="atc_title" name="atc_title" fw-filter="isFill" fw-label="제목" fw-msg class="inputTypeText" placeholder maxlength="125" type="text">
-	                                    </td>
-	                                </tr>
-	                                <tr>
-	                                    <td colspan="2" class="clear">
-	                                        <div class="fr-box fr-ltr ec-froala-theme fr-basic fr-top" role="application">
-	                                            <div class="fr-wrapper" dir="ltr">
-	                                                <div id="atc_content" class="fr-view" dir="ltr" contenteditable="true" style="min-height: 400px;" aria-disabled="false" spellcheck="true">
-	                                                    <input type="hidden" name="atc_content">
-	                                                    "갤러리 게시판과 관련 없는 글 혹은 악의적인 비방글, 운영방해성 항의글, 비속어 및 욕설 등은 사전 통보 없이 삭제처리됨을 알려드립니다! "
-	                                                </div>
-	                                            </div>
-	                                        </div>
-	                                    </td>
-	                                </tr>
-	                            </tbody>
-	                        </table>
-	                    </div>
-	                    <div class="ec-base-button ">
-	                        <span class="gRight">
-	                            <a href="#none" onclick="submitArticleForm();" class="Button button-rounded button-normal black">글 등록</a>
-	                        </span>
-	                    </div>
-	                </div>
-	            </form>
-	        </div>
-	    </div>
-	</div>
-	<script>
-	    // 파일 업로드 폼 전송 함수
-	    function submitFileUploadForm() {
-	        // 파일 업로드 폼을 서브밋
-	        var fileUploadForm = document.getElementById("fileUploadForm");
-	        fileUploadForm.submit();
-	    }
-	
-	    // 글 작성 폼 전송 함수
-	    function submitArticleForm() {
-	        // 글 작성 폼을 서브밋
-	        var articleForm = document.getElementById("articleForm");
-	        articleForm.submit();
-	    }
-	</script>
+      <div id="write-container">
+       <div id="contents">
+           <div class="xans-element- xans-board xans-board-writepackage-4 xans-board-writepackage xans-board-4">
+               <div class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
+                   <div class="title">
+                       <h2>
+                           <font color="#555555">COLI GALLERY</font>
+                       </h2>
+                       <p>회원님들의 작품을 올려주세요.</p>
+                   </div>
+               </div>
+               <!-- 파일 업로드 폼 -->
+               <form id="fileUploadForm" action="${cpath}/board/articleFileUpload" method="post" target="_self" enctype="multipart/form-data">
+                   <div class="xans-element- xans-board xans-board-write-4 xans-board-write xans-board-4">
+                       <div class="ec-base-box typeProduct">
+                           <p class="thumbnail">
+                               <a href>
+                                   <img id="iPrdImg" src="//img.echosting.cafe24.com/thumb/75x75.gif" onerror="this.src='//img.echosting.cafe24.com/thumb/75x75.gif'">
+                               </a>
+                           </p>
+                           <div class="information">
+                               <p>대표이미지를 선택해 주세요.</p>
+                               <p class="button">
+                                   <span>
+                                       <input type="file" id="fileInput" name="file" style="display: none;">
+                                       <a href="#none" onclick="document.getElementById('fileInput').click();">
+                                           <img src="${cpath}/images/image/file_upload.png" alt="파일업로드">
+                                       </a>
+                                   </span>
+                               </p>
+                           </div>
+                       </div>
+                   </div>
+               </form>
+               
+               <!-- 글 작성 폼 -->
+               <form id="articleForm" action="${cpath}/board/register" method="post">
+                   <div class="xans-element- xans-board xans-board-write-4 xans-board-write xans-board-4">
+                       <div class="ec-base-table typeWrite ">
+                           <table border="1" summary>
+                               <caption>글쓰기 폼</caption>
+                               <colgroup>
+                                   <col style="width:130px;">
+                                   <col style="width:auto;">
+                               </colgroup>
+                               <tbody>
+                                   <tr>
+                                 <th scope="row">제목</th>
+                                 <td>
+                                    <input id="subject" name="subject" fw-filter="isFill" fw-label="제목" fw-msg class="inputTypeText" placeholder maxlength="125" value type="text">
+                                 </td>
+                              </tr>
+                                   <tr>
+                                       <td colspan="2" class="clear">
+                                           <div class="fr-box fr-ltr ec-froala-theme fr-basic fr-top" role="application">
+                                               <div class="fr-wrapper" dir="ltr">
+                                                   <div id="atc_content" class="fr-view" dir="ltr" contenteditable="true" style="min-height: 400px;" aria-disabled="false" spellcheck="true">
+                                                       <input type="hidden" name="atc_content">
+                                                       "갤러리 게시판과 관련 없는 글 혹은 악의적인 비방글, 운영방해성 항의글, 비속어 및 욕설 등은 사전 통보 없이 삭제처리됨을 알려드립니다! "
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </td>
+                                   </tr>
+                               </tbody>
+                               <tbody>
+                                 <tr>
+                                    <th scope="row" style="border: none!important;">첨부파일</th>
+                                    <td style="border: none!important;">
+                                       <input name="attach_file[]" type="file" style="background-color: transparent;" onchange="submitFileUploadForm()">
+                                    </td>
+                                 </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                       <div class="ec-base-button ">
+                        <span class="gLeft">
+                           <a href="${cpath}/board/gallery" class="Button button-rounded button-small" >목록</a>
+                        </span>
+                        <span class="gRight">
+                           <a href="#none" onclick="submitArticleForm()" class="Button button-rounded button-normal black">등록</a>
+                           <a href="" class="Button button-rounded button-normal">취소</a>
+                        </span>
+                     </div>
+                   </div>
+               </form>
+           </div>
+       </div>
+   </div>
+   <script>
+       // 파일 업로드 폼 전송 함수
+       function submitFileUploadForm() {
+           // 파일 업로드 폼을 서브밋
+           var fileUploadForm = document.getElementById("fileUploadForm");
+           fileUploadForm.submit();
+       }
+   
+       // 글 작성 폼 전송 함수
+       function submitArticleForm() {
+           // 글 작성 폼을 서브밋
+           var articleForm = document.getElementById("articleForm");
+           articleForm.submit();
+       }
+   </script>
     <script>
     // 문서가 로드된 후 실행될 JavaScript 코드
        document.addEventListener('DOMContentLoaded', function() {
            // content_BODY 요소를 선택
-           var contentBody = document.getElementById('content_BODY');
+           var atc_content = document.getElementById('atc_content');
    
            // content_BODY를 클릭할 때 실행되는 함수
-           contentBody.addEventListener('click', function() {
+           atc_content.addEventListener('click', function() {
                // content_BODY 내용을 빈 문자열로 설정하여 텍스트를 사라지게 함
-               contentBody.innerHTML = '';
+               atc_content.innerHTML = '';
            });
        });
    </script>
