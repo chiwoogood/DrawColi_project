@@ -72,6 +72,11 @@
 			<artifactId>spring-security-taglibs</artifactId>
 		</dependency>
 		
+		<dependency> <!-- th 반복 -->
+      	    <groupId>org.springframework.boot</groupId>
+      	    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+  		  </dependency>
+		
 	</dependencies>
 
 	<build>

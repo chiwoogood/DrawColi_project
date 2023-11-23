@@ -8,6 +8,8 @@ public interface ArticleService {
    
    public List<Article> getList(); // 게시글 전체조회
    
+   public Article getArticleById(Long id);
+   
    public void register(Article vo); // 게시글 등록
 
    public Article get(Long atc_id);

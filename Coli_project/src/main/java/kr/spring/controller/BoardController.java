@@ -42,16 +42,22 @@ public class BoardController {
 	   return "member/mypage";
    }
    
-   @GetMapping("/remove")
+   @PostMapping("/remove")
    public String remove(@RequestParam("atc_id")long atc_id) {
 	   articleService.delete(atc_id);
 	   return "redirect:/board/gallery";
    }
    
+   @GetMapping("/modify/{atc_id}")
+   public String modify() {
+	   return "board/modifyform";
+   }
+   
+   
    @PostMapping("/modify")
-   public String modify(Article vo) {
+   public String modify(@RequestParam("atc_id")long atc_id, Article vo) {
 	   articleService.modify(vo);
-	   return "redirect:/board/gallery";
+	   return "board/detail";
    }
    
    @PostMapping("/articleFileUpload")
@@ -60,24 +66,22 @@ public class BoardController {
 	   return "";
    }
    
-   @RequestMapping("/gallery")
-   public String gallery() {
-	   return "board/gallery";
+   @GetMapping("/gallery")
+   public String getAllArticles(Model model) {
+       // 모든 유저가 작성한 article을 가져오기
+       List<Article> allArticles = articleService.getList();
+       model.addAttribute("allArticles", allArticles);
+       
+       return "board/gallery"; // "gallery"라는 뷰 페이지로 이동하여 모든 article 정보를 출력
    }
    
    @GetMapping("/detail/{atc_id}")
    public String detail(@PathVariable long atc_id, Model model) {
-	   
-//   
-	   Article article = articleService.Detail(atc_id);
-	   model.addAttribute("article", article); 
-	  
-//	   
-//	   List<ArticleFile> articleFiles = articleFileService.getArticleFiles(atc_id);
-//	   
-
-//	   model.addAttribute("articleFiles", articleFiles);
-	   return "board/detail";
+       // GET 요청으로 변경된 내용을 처리하는 코드를 작성
+       Article article = articleService.Detail(atc_id);
+       model.addAttribute("article", article); 
+       return "board/detail";
    }
+
    
 }

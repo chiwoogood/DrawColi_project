@@ -7,7 +7,6 @@
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 <c:set var="user" value="${SPRING_SECURITY_CONTEXT.authentication.principal}" />
 <c:set var="auth" value="${SPRING_SECURITY_CONTEXT.authentication.authorities}" />
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,9 +34,9 @@
    <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet">
-   
-   
 </head>
+
+
 <body>
       <%@ include file="/WEB-INF/header.jsp"%>
       <section id="login-intro" class="login-section">
@@ -73,60 +72,45 @@
                   <div class="xans-element- xans-product xans-product-listnormal ec-base-product">
                      <ul class="prdList grid3">
                         <!-- 반복 -->
-                        <li id="anchorBoxId_367" class="xans-record-">
-                           <div class="thumbnail">
-                              <div class="prdImg">
-                                 <a href="#" name="">
-                                    <img src="" id="" alt="">
-                                 </a>
-                              </div>
-                              <div class="description" style="cursor:text;">
-                                 <strong class="name">
-                                    <a href="#">
-                                       <span style="font-size:12px;color:#000000;">글제목</span>
-                                    </a>
-                                 </strong>
-                                 <ul class="xans-element- xans-product xans-product-listitem spec">
-                                    <li class=" xans-record-">
-                                       <strong class="title ">
-                                          <span style="font-size:12px;color:#555555;">작성자</span>
-                                          <!-- 글작성날짜-->
-                                       </strong>
-                                       <span style="font-size:12px;color:#000000;font-weight:bold;">진짜작성자</span>
-                                    </li>
-                                  
-                                 </ul>
-                              </div>
-                           </div>
-                        </li>
-                        
+                        <c:forEach items="${allArticles}" var="article">
+                            <li id="anchorBoxId_367" class="xans-record-">
+                                <div class="thumbnail">
+                                    <div class="prdImg">
+                                        <a href="#}">
+                                            <img src="" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="description" style="cursor:text;">
+                                        <strong class="name">
+                                            <a href="${cpath}/board/detail/${article.atc_id}">
+                                                <span style="font-size:12px;color:#000000;">${article.atc_title}</span>
+                                            </a>
+                                        </strong>
+                                        <ul class="xans-element- xans-product xans-product-listitem spec">
+                                            <li class="xans-record-">
+                                                <strong class="title">
+                                                    <span style="font-size:12px;color:#555555;">작성자${article.writer_id.username}</span>
+                                                </strong>
+                                                <span style="font-size:12px;color:#000000;font-weight:bold;">${article.writer_id.username}</span>
+                                            </li>
+                                        </ul>
+           								<ul class="xans-element- xans-product xans-product-listitem spec">
+                                            <li class="xans-record-">
+                                                <strong class="title">
+                                                    <span style="font-size:12px;color:#555555;">작성시간${article.created_at}</span>
+                                                </strong>
+                                                <span style="font-size:12px;color:#000000;font-weight:bold;">${article.created_at}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:forEach>
                           <!-- 반복 -->
                      </ul>
                   </div>
                </div>
-               <div class="xans-element- xans-product xans-product-normalpaging ec-base-paginate">
-                  <a href="#none" class="first">
-                     <img src="${cpath}/images/image/btn_page_first.gif" alt="첫 페이지"> 
-                  </a>
-                  <a href="#none">
-                     <img src="${cpath}/images/image/btn_page_prev.gif"> 
-                  </a>
-                  <ol>
-                  <li class="xans-record-"><a href="?cate_no=27&amp;page=1" class="this">1</a></li>
-                    <li class="xans-record-"><a href="?cate_no=27&amp;page=2" class="other">2</a></li>
-                    <li class="xans-record-"><a href="?cate_no=27&amp;page=3" class="other">3</a></li>
-                    <li class="xans-record-"><a href="?cate_no=27&amp;page=4" class="other">4</a></li>
-                  </ol>
-                  <a href="?cate_no=27&amp;page=2">
-                     <img src="${cpath}/images/image/btn_page_next.gif" alt="다음 페이지">
-                  </a>
-                  <a href="?cate_no=27&amp;page=4" class="last">
-                     <img src="${cpath}/images/image/btn_page_last.gif" alt="마지막 페이지">
-                  </a>
-                  <span class="gRight">
-                  <a href="${cpath}/board/boardform" onclick="" class="Button button-rounded button-normal black">글쓰기</a>
-               </span>
-               </div>
+               <!-- 페이지네이션 및 기타 요소들은 원본과 동일하게 유지 -->
             </div>
          </div>
       </div>

@@ -55,7 +55,7 @@
         }
     </style>
 </head>
-		<body style="overflow-x: hidden;">
+<body style="overflow-x: hidden;">
 		      <%@ include file="/WEB-INF/header.jsp"%>
 		      <section id="login-intro" class="login-section">
 		      <div class="log-in">
@@ -67,31 +67,30 @@
 		         </div><!--slider-item-->
 		      </div>
 		      </section>
-		    <div class="container mt-4">
-		        <div class="card">
-		            <div class="card-header">
-		                <h2>COLI GALLERY</h2>
-		                <p>회원님들의 작품을 올려주세요.</p>
-		            </div>
-		            <div class="card-body">
-		                <h5 class="card-title">제목 :${article.atc_title}</h5>
-		                <p class="card-text">내용 : ${article.atc_content}</p>
-		                <p class="card-text">게시일 : ${article.created_at} </p>
-		            </div>
-		            <div class="card-footer text-center">
-		                <a href="${cpath}/board/gallery" class="btn btn-primary me-2">목록</a>
-		                <form action="${cpath}/board/modify" class="d-inline">
-		                    <input type="hidden" name="atc_id" value="${atc_id}">
-		                    <button type="submit" class="btn btn-warning me-2">수정</button>
-		                </form>
-		                <form action="${cpath}/board/remove" method="POST" class="d-inline">
-		                    <input type="hidden" name="atc_id" value="${atc_id}">
-		                    <button type="submit" class="btn btn-danger me-2">삭제</button>
-		                </form>
-		                <a href="javascript:history.back()" class="btn btn-secondary">취소</a>
-		            </div>
-		        </div>
-		    </div>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h2>COLI GALLERY - 게시글 수정</h2>
+            </div>
+            <form action="${cpath}/board/modify" method="POST">
+                <div class="card-body">
+                    <input type="hidden" name="atc_id" value="${article.atc_id}">
+                    <div class="mb-3">
+                        <label for="atc_title" class="form-label">제목</label>
+                        <input type="text" class="form-control" id="atc_title" name="atc_title" value="${article.atc_title}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="atc_content" class="form-label">내용</label>
+                        <textarea class="form-control styled-textarea" id="atc_content" name="atc_content" required>${article.atc_content}</textarea>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-warning me-2">수정하기</button>
+                    <a href="javascript:history.back()" class="btn btn-secondary">취소</a>
+                </div>
+            </form>
+        </div>
+    </div>
    <script>
        // 파일 업로드 폼 전송 함수
        function submitFileUploadForm() {

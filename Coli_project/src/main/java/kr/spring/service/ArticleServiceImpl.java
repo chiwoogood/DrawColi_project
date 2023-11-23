@@ -28,6 +28,12 @@ public class ArticleServiceImpl implements ArticleService{
       List<Article> list = articleRepository.findAll();
       return list;
    }
+   
+   @Override
+   public Article getArticleById(Long id) {
+       // 특정 ID에 해당하는 Article 조회
+       return articleRepository.findById(id).orElse(null);
+   }   
 
    @Override
    public void register(Article vo) {
@@ -53,7 +59,7 @@ public class ArticleServiceImpl implements ArticleService{
 
    @Override
    public void modify(Article vo) {
-   	System.out.println(vo);
+
 
       articleRepository.save(vo);
    }
