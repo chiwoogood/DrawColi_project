@@ -78,7 +78,11 @@
                        <p>회원님들의 작품을 올려주세요.</p>
                    </div>
                </div>
+               
+               
+               
                <!-- 파일 업로드 폼 -->
+               <!-- 이미지는 아직
                <form id="fileUploadForm" action="${cpath}/board/articleFileUpload" method="post" target="_self" enctype="multipart/form-data">
                    <div class="xans-element- xans-board xans-board-write-4 xans-board-write xans-board-4">
                        <div class="ec-base-box typeProduct">
@@ -101,9 +105,11 @@
                        </div>
                    </div>
                </form>
-               
+                -->
+                
+                
+                
                <!-- 글 작성 폼 -->
-               <form id="articleForm" action="${cpath}/board/register" method="post">
                    <div class="xans-element- xans-board xans-board-write-4 xans-board-write xans-board-4">
                        <div class="ec-base-table typeWrite ">
                            <table border="1" summary>
@@ -114,25 +120,14 @@
                                </colgroup>
                                <tbody>
                                    <tr>
-                                 <th scope="row">제목</th>
-                                 <td>
-                                    <input id="atc_title" name="atc_title" fw-filter="isFill" fw-label="제목" fw-msg class="inputTypeText" placeholder maxlength="125" value type="text">
-                                 </td>
-                              </tr>
+                                 <th scope="row"><td>${article.atc_title}</td></th>
+                          		    </tr>
                                    <tr>
                                        <td colspan="2" class="clear">
+                                       <td>${article.atc_title}</td>
 											<textarea class="styled-textarea" id="atc_content" name="atc_content"></textarea>
                                        </td>
                                    </tr>
-                               </tbody>
-                               <tbody>
-                                 <tr>
-                                    <th scope="row" style="border: none!important;">첨부파일</th>
-                                    <td style="border: none!important;">
-                                       <input name="attach_file[]" type="file" style="background-color: transparent;" onchange="submitFileUploadForm()">
-                                    </td>
-                                 </tr>
-                               </tbody>
                            </table>
                        </div>
                        <div class="ec-base-button ">
@@ -144,8 +139,7 @@
                            <a href="" class="Button button-rounded button-normal">취소</a>
                         </span>
                      </div>
-                   </div>
-               </form>
+                 </div>
            </div>
        </div>
    </div>

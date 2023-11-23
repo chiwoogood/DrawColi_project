@@ -69,12 +69,15 @@ public class BoardController {
    public String detail(@PathVariable long atc_id, Model model) {
 	   
 //   
-//	   Article article = articleService.Detail(atc_id);
+	   Article article = articleService.Detail(atc_id);
+	   model.addAttribute("article", article); 
+	  
 //	   
 //	   List<ArticleFile> articleFiles = articleFileService.getArticleFiles(atc_id);
 //	   
-//	   model.addAttribute("article", article);
+
 //	   model.addAttribute("articleFiles", articleFiles);
-   return "board/detail/" + atc_id;
+	   return "board/detail";
    }
+   
 }
