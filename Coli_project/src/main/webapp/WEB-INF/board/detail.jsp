@@ -80,10 +80,10 @@
 		            </div>
 		            <div class="card-footer text-center">
 		                <a href="${cpath}/board/gallery" class="btn btn-primary me-2">목록</a>
-		                <form action="${cpath}/board/modify" class="d-inline">
-		                    <input type="hidden" name="atc_id" value="${atc_id}">
-		                    <button type="submit" class="btn btn-warning me-2">수정</button>
-		                </form>
+						<form action="${cpath}/board/modify" method="GET" class="d-inline">
+						    <input type="hidden" name="atc_id" value="${atc_id}">
+						    <button type="submit" class="btn btn-warning me-2">수정</button>
+						</form>
 		                <form action="${cpath}/board/remove" method="POST" class="d-inline">
 		                    <input type="hidden" name="atc_id" value="${atc_id}">
 		                    <button type="submit" class="btn btn-danger me-2">삭제</button>
@@ -92,6 +92,27 @@
 		            </div>
 		        </div>
 		    </div>
+		    
+		    
+		    <!-- 댓글 -->
+			<div id="comment-form-container">
+			    <h3>댓글 남기기</h3>
+			    <form id="commentForm">
+			        <input type="hidden" id="atc_id" name="atc_id" value="${article.atc_id}"> <!-- 게시글 ID -->
+			        <div class="form-group">
+			            <label for="comment_author">ID : ${user.member.username}</label>
+			        </div>
+			        <div class="form-group">
+			            <label for="comment_content">댓글:</label>
+			            <textarea id="comment_content" name="content" required></textarea>
+			        </div>
+			        <button type="button" onclick="commentSubmit()">댓글 작성</button>
+			    </form>
+			</div>
+			<div id="comments">
+			    <!-- 여기에 댓글 목록이 동적으로 표시됩니다 -->
+			</div>
+			<!-- 댓글 -->
    <script>
        // 파일 업로드 폼 전송 함수
        function submitFileUploadForm() {
@@ -113,30 +134,35 @@
     	   
        }
    </script>
-    <script>
-    // 문서가 로드된 후 실행될 JavaScript 코드
-       document.addEventListener('DOMContentLoaded', function() {
-           // content_BODY 요소를 선택
-           var atc_content = document.getElementById('atc_content');
    
-           // content_BODY를 클릭할 때 실행되는 함수
-           atc_content.addEventListener('click', function() {
-               // content_BODY 내용을 빈 문자열로 설정하여 텍스트를 사라지게 함
-               atc_content.innerHTML = '';
-           });
-       });
-   </script>
-   
-   <script src="${cpath}/js/jquery-1.11.0.min.js"></script>
-   <script src="${cpath}/js/ui-easing.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-           integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-           crossorigin="anonymous"></script>
-   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-   <script src="${cpath}/js/plugins.js"></script>
-   <script src="${cpath}/js/script.js"></script>
-   
-   
+	<script>
+	function commentSubmit() {
+	    console.log("댓글작성시도");
+	    var atc_id = $('#atc_id').val();
+	    var comment_content = $('#comment_content').val();
+	    
+	    $.ajax({
+	        type: 'POST',
+	        url: '${cpath}/board/commentRegister', // 댓글 작성을 처리하는 서버의 URL
+	        data: {"comment_content": comment_content, "atc_id": atc_id},
+	        success: function(response) {
+	            console.log("성공");
+	            $("#comment_content").val(''); // 댓글 입력란 초기화
+	            loadComments(); // 댓글 목록 갱신
+	        },
+	        error: function() {
+	            alert('댓글 작성 중 오류가 발생했습니다.');
+	        }
+	    });
+	}
+
+	</script>
+
+<script src="${cpath}/js/ui-easing.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script src="${cpath}/js/plugins.js"></script>
+<script src="${cpath}/js/script.js"></script>
 </body>
 
 </html>

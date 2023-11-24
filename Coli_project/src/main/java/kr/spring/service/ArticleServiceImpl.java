@@ -3,15 +3,11 @@
 import java.util.List;
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import kr.spring.entity.Article;
-import kr.spring.entity.Member;
 import kr.spring.repository.ArticleRepository;
-import kr.spring.repository.MemberRepository;
 
 
 @Service
@@ -20,30 +16,18 @@ public class ArticleServiceImpl implements ArticleService{
    @Autowired
    private ArticleRepository articleRepository;
    
-   @Autowired
-   private MemberRepository memberRepository;
-   
    @Override
    public List<Article> getList() {
       List<Article> list = articleRepository.findAll();
       return list;
    }
-   
-   @Override
-   public Article getArticleById(Long id) {
-       // 특정 ID에 해당하는 Article 조회
-       return articleRepository.findById(id).orElse(null);
-   }   
 
    @Override
-   public void register(Article vo) {
-       String username = SecurityContextHolder.getContext().getAuthentication().getName();
-       System.out.println("현재 사용자의 username: " + username);
-       Member writer = memberRepository.findById(username).orElse(null);
-       vo.setWriter_id(writer);
-       articleRepository.save(vo);
+   public Long register(Article vo) {
+      // 게시글 등록
+      articleRepository.save(vo);
+      return vo.getAtc_id(); // 저장된 게시글의 ID 반환
    }
-
 
 
    @Override
@@ -58,10 +42,13 @@ public class ArticleServiceImpl implements ArticleService{
    }
 
    @Override
-   public void modify(Article vo) {
-
-
-      articleRepository.save(vo);
+   public void modify(Article article) {
+       articleRepository.save(article);
+   }
+   
+   @Override
+   public Article findById(long atc_id) {
+       return articleRepository.findById(atc_id).orElse(null);
    }
    
    @Override

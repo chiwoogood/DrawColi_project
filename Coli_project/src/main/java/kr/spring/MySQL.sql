@@ -1,2 +1,1 @@
-SELECT * FROM article;
-
+SELECT * FROM comment;

@@ -256,7 +256,7 @@
     vertical-align: middle!important;
 }
 
-.xans-board-write .ec-base-table #subject {
+.xans-board-write .ec-base-table #atc_title {
     width: 390px;
 }
 
@@ -463,4 +463,220 @@
     display: block;
     content: "";
     clear: both;
+}
+
+
+/*****************************
+***********갤러리***************
+******************************/
+
+#wrap {
+    position: relative;
+    margin: 0 auto;
+    min-width: 1000px;
+    font: 0.75em Nanum Gothic,Lato,Verdana,AppleGothic,sans-serif;
+    color: #353535;
+    background: #fff;
+}
+
+#wrap h1, #wrap h2, #wrap h3, #wrap h4, #wrap h5, #wrap h6, #wrap pre, #wrap code, #wrap form, #wrap fieldset, #wrap legend, #wrap input, #wrap textarea, #wrap p, #wrap blockquote, #wrap th, #wrap td, #wrap img {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    width: 75%;
+    margin: 0 0 0 390px;
+}
+
+.xans-product-menupackage .title {
+    min-height: 30px;
+    margin: 10px 0 20px;
+    text-align: center;
+}
+
+.xans-product-menupackage .title .banner {
+    margin: 0 0 20px;
+}
+
+.xans-product-menupackage .title h2, .xans-product-menupackage .title .likeButton {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.xans-product-menupackage .title h2 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.xans-product-normalmenu {
+    margin: 50px 0 0;
+    font-family: 'Lato','Noto Sans KR',sans-serif;
+}
+
+.xans-product-normalmenu .function {
+    overflow: hidden;
+    text-align: right;
+    line-height: 38px;
+}
+
+.xans-product-normalmenu .prdCount {
+    float: left;
+    padding: 0 0 0 8px;
+    color: #333;
+}
+
+.ec-base-product {
+    margin: 20px 0 70px;
+}
+
+.ec-base-product .prdList {
+    display: table;
+    width: 100%;
+    margin: -20px 0 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.ec-base-product ul.grid3 > li {
+    width: 33.33%;
+}
+
+.ec-base-product .prdList > li {
+    position: relative;
+    display: inline-block;
+    margin: 30px 0 20px;
+    color: #757575;
+    vertical-align: top;
+}
+
+#wrap li {
+   list-style: none;
+}
+
+.ec-base-product .prdList .thumbnail {
+    position: relative;
+    margin: 10px 7px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.ec-base-product .prdList .thumbnail .prdImg {
+    position: relative;
+}
+
+.prdImg a {
+    text-decoration: none;
+    color: #000;
+}
+
+.ec-base-product .prdList .thumbnail a img {
+    max-width: 100%;
+    box-sizing: border-box;
+    webkit-transition: all 3s cubic-bezier(.19,1,.22,1);
+    -o-transition: all 3s cubic-bezier(.19,1,.22,1);
+    transition: all 3s cubic-bezier(.19,1,.22,1);
+    width: 100%;
+}
+
+#wrap img,
+#wrap fieldset {
+   border: none;
+    vertical-align: top;
+}
+
+.ec-base-product .prdList .description {
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.ec-base-product .prdList .description .name {
+    display: block;
+    text-align: center;
+    font-weight: normal;
+}
+
+.ec-base-product .prdList .description .name a {
+    color: #2e2e2e;
+}
+
+.ec-base-product .title {
+    margin: 0 0 17px;
+    font-family: 'Noto Sans KR','Lato';
+}
+
+.ec-base-product .spec {
+    margin: 0;
+}
+
+.ec-base-product .spec li {
+    line-height: 17px;
+}
+
+#wrap li {
+   list-style: none;
+}
+
+.ec-base-product .spec li .title {
+    font-weight: normal;
+    vertical-align: top;
+}
+
+.ec-base-product .title {
+    margin: 0 0 17px;
+    font-family: 'Noto Sans KR','Lato';
+}
+
+.ec-base-paginate {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 0;
+    line-height: 0;
+}
+
+.ec-base-paginate img {
+    vertical-align: top;
+}
+
+.ec-base-paginate ol {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: top;
+    *display: inline;
+    *zoom: 1;
+    *margin: 0;
+}
+
+.ec-base-paginate li:first-child {
+    margin-left: 0;
+}
+
+.ec-base-paginate li {
+    display: inline-block;
+    margin: 0 0 0 -1px;
+    font-size: 12px;
+    color: #757575;
+    vertical-align: top;
+    *display: inline;
+    *zoom: 1;
+}
+
+.ec-base-paginate li a.this {
+    padding-bottom: 6px;
+    border-bottom: 2px solid #495164;
+    color: #495164;
+}
+
+.ec-base-paginate li a {
+    display: block;
+    width: 33px;
+    padding: 9px 0;
+    font-weight: bold;
+    color: #939393;
+    line-height: 14px;
+    background: #fff;
 }

@@ -58,8 +58,9 @@
                <div class="col-md-3 text-white">
                   <h3 class="text-white fw-bold nav__block-item" onclick="location.href='${cpath}/member/mypage';" style="cursor:pointer; user-select: none;">MyPage</h3>
                   <ul class="list-unstyled nav__block-item">
-                     <li><a href="${cpath}/member" class="text-white">My Work</a></li>
                      <li><a href="${cpath}/member/modify" class="text-white">My Account</a></li>
+                     <li><a href="${cpath}/mygallery/{username}" class="text-white">My Gallery</a></li>
+                     <li><a href="${cpath}/member/myplan" class="text-white">My Plan</a></li>
                      <c:if test="${not empty user}">
                         <li><a href="${cpath}/member/logout" class="text-white">Logout</a></li>
                      </c:if>
